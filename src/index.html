@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Video background</title>
+
+<style>
+
+.frontbox {
+    position: absolute;
+	background:#444; background:rgba(0,0,0,.6);
+	color:white;
+	padding:20px;
+	border-radius:5px;
+	margin:120px;
+	display:block;
+	top: 0;
+	font-family: 'myriad-std-tilt', sans-serif;
+}
+
+video {
+position: absolute;
+top:0;
+height:100%;
+width:100%;
+background:100%;
+}
+
+</style>
+</head>
+<body>
+
+<div id="Videocontainer">
+	<video autoplay loop muted>
+		<source src="river.mp4" type="video/mp4">
+	</video>
+	<div class="frontbox">
+		<h1>Video background</h1>
+		<h2> no script, just html5</h2>
+		<h3 id="msg">video loop muted autoplay</h3>
+		<p> ref html5 http://www.w3schools.com/tags/ref_av_dom.asp</p>
+	</div>
+</div>
+<script>
+</script>	
+</body>
+</html>
