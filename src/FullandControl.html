@@ -1,0 +1,94 @@
+
+<html> 
+<style>
+body{
+margin:0;
+padding:0;
+overflow:hidden;
+}
+.container{
+position: relative;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+}
+.box h1{
+color: white;
+}
+.box{
+position: absolute;
+top: 100px;
+left: 50px;
+width: 400px;
+height:400px;
+display:block;
+background: rgba(0,0,0,0.6);
+z-index:10;
+}
+#video1 {
+position: absolute;
+}
+</style>
+<body onresize="fillscreen()"> 
+
+<div class="box">
+  <h1> loop muted autoplay with <br> filled screen</h1>
+  <button onclick="playPause()">Play/Pause</button> <br>
+  <button onclick="fillscreen()">full</button><br>
+  <button onclick="makeSmall()">Small</button><br>
+  <button onclick="makeNormal()">Normal</button><br>
+  <button onclick="showhide()">show/hide</button><br>
+  <button onclick="soundtoggle()">sound on/off</button>
+</div> 
+  <video id="video1" autoplay loop muted width="420" oncanplay="fillscreen()">
+    <source src="surf.mp4" type="video/mp4">
+  </video>
+
+</div> 
+
+<script> 
+var myVideo=document.getElementById("video1"); 
+
+function playPause()
+{ 
+if (myVideo.paused) 
+  myVideo.play(); 
+else 
+  myVideo.pause(); 
+} 
+
+function fillscreen()
+{ 
+var winratio = window.innerWidth / window.innerHeight;
+var videoratio = myVideo.videoWidth / myVideo.videoHeight;
+ratio = videoratio/winratio;
+myVideo.width= window.innerWidth * ratio; 
+} 
+function showhide() {
+if (myVideo.style.visibility==="visible") {
+  myVideo.pause(); 
+  myVideo.style.visibility="hidden";}
+else 
+  {
+  myVideo.style.visibility="visible";
+  myVideo.play();
+  }
+}
+function soundtoggle(){
+myVideo.muted = !myVideo.muted;
+}
+
+function makeSmall()
+{ 
+myVideo.width=320; 
+} 
+
+function makeNormal()
+{ 
+myVideo.width=420; 
+} 
+</script> 
+</body> 
+</html>
